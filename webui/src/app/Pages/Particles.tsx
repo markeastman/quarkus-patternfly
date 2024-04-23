@@ -3,8 +3,8 @@ import { PageSection, Title, TextContent, Text, TextVariants } from '@patternfly
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 
-function Posts() {
-  const [posts, setPosts] = useState([]);
+function Particles() {
+  const [particles, setParticles] = useState([]);
   const navigate = useHistory();
 
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
@@ -12,26 +12,26 @@ function Posts() {
   useEffect(() => {
     fetch (apiBaseUrl + "/api/particles" )
      .then( (response) => response.json() )
-     .then( (data) => { console.log(data); setPosts(data); })
+     .then( (data) => { console.log(data); setParticles(data); })
   }, []);
 
   const openPost = (id) => {
-    navigate.push(`/posts/${id}`);
+    navigate.push(`/particles/${id}`);
   };
 
-  if (posts.length) {
+  if (particles.length) {
     return (
       <div>
-        <h1>Posts</h1>
+        <h1>Particles</h1>
         <div className="posts">
-          {posts.map((post) => (
+          {particles.map((particle) => (
             <div
-              className="post"
-              key={post.id}
-              onClick={() => openPost(post.id)}
+              className="particle"
+              key={particle.id}
+              onClick={() => openPost(particle.id)}
             >
-              <div className="title">{post.title}</div>
-              <div className="body">{post.body.slice(0, 75)}...</div>
+              <div className="title">{particle.title}</div>
+              <div className="body">{particle.body.slice(0, 75)}...</div>
               <div className="link">Read more</div>
             </div>
           ))}
@@ -47,4 +47,4 @@ function Posts() {
     }
 }
 
-export { Posts };
+export { Particles };

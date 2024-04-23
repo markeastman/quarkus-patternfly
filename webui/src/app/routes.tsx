@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, RouteComponentProps, Switch, useLocation } from 'react-router-dom';
 import { Dashboard } from '@app/Dashboard/Dashboard';
-import { Posts } from '@app/Pages/Posts';
+import { Particles } from '@app/Pages/Particles';
 import { Support } from '@app/Support/Support';
 import { GeneralSettings } from '@app/Settings/General/GeneralSettings';
 import { ProfileSettings } from '@app/Settings/Profile/ProfileSettings';
@@ -36,11 +36,11 @@ const routes: AppRouteConfig[] = [
     title: 'PatternFly Seed | Main Dashboard',
   },
   {
-    component: Posts,
+    component: Particles,
     exact: true,
-    label: 'Posts',
-    path: '/posts',
-    title: 'Posts',
+    label: 'Particles',
+    path: '/Particles',
+    title: 'Particles',
   },
   {
     component: Support,
