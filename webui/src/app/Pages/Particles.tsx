@@ -10,7 +10,7 @@ function Particles() {
   const apiBaseUrl = process.env.REACT_APP_API_BASE_URL;
 
   useEffect(() => {
-    fetch (apiBaseUrl + "/api/particles" )
+    fetch (apiBaseUrl + "/api/particles", { mode: "no-cors" } )
      .then( (response) => response.json() )
      .then( (data) => { console.log(data); setParticles(data); })
   }, []);
